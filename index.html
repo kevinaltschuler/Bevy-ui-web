@@ -1,13 +1,53 @@
 <html>
-
 <head>
-<link href="C:\Users\KEVIN\git\bootstrap.css" rel="stylesheet">
-<link href="C:\\Users\\KEVIN\\git\\app.css" rel="stylesheet">
-<script src="C:\Users\KEVIN\git\jquery-2.1.3.js"></script>
-<script src="C:\Users\KEVIN\git\bootstrap.min.js"></script>
+<link href="css\bootstrap.css" rel="stylesheet">
+<link href="css\custom.less" rel="stylesheet">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<script src="js\jquery-2.1.3.js"></script>
+<script src="js\bootstrap.min.js"></script>
 </head>
 <body>
-	dicks
+  <div class="navbar navbar-fixed-top"> <!-- navbar -->
+    <div class="navbar-header pull-left">
+      <a class="navbar-brand" href="#">Bevy</a>
+    </div>
+    <div class="navbar-header pull-right" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group" style="padding-right: 10px">
+          <input type="text" class="search-input" placeholder="  ">
+        </div>
+        <span class="glyphicon glyphicon-search" aria-hidden="true" style="color:#FFF"></span>
+      </form>
+    </div>
+  </div> <!-- Navbar -->
+  <div class="container">
+      <div class="row"> <!-- NEW POST -->
+        <div class="col-xs-12">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder=" ">
+            <span class="input-group-btn">
+              <button class="btn btn-default" data-toggle="tooltip" data-placement="right" title="" data-original-title="add media to your post" type="button">+</button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-xs-12 -->
+      </div><!-- /.row -->
+     <div class="well sort-well"> <!-- TOP • NEW -->
+      <div class="col-xs-12 btn-group" role="group" style="float:none; text-align: center;">
+        <text style="color: #757d83; margin-left: auto; margin-right: auto;">
+        <button type="button" class="sort-btn btn active" id="top-btn">top</button>
+        &#8226
+        <button type="button" class="sort-btn btn" id="new-btn">new</button>
+        </text>
+      </div><!-- /.col-xs-12 -->
+     </div><!-- /.well -->
+</div>
 </body>
-
 </html>
+
+<script>
+$(function () { $("[data-toggle='tooltip']").tooltip(); });
+
+$(".btn-group > text > .btn").click(function(){
+    $(this).addClass("active").siblings().removeClass("active");
+});
+</script>
