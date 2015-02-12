@@ -51,6 +51,10 @@ body {
 /*FORMS*/
 .navbar-form{
   padding-top: 11px;
+  padding-right: 30px;
+}
+.navbar-form .form-group {
+  display: inline-block;
 }
 textarea:focus,
 input[type="text"]:focus,
@@ -187,5 +191,15 @@ button:hover
 
 
 @media (max-width: 767px) {
-
+.navbar-form .form-group {
+  margin-bottom: 0px;
+}
+.row .col-xs-12 .input-group {
+  width: 300px;
+}
+}
+@media (max-width: 350px) {
+.search-input {
+  width: 140px;
+}
 }
