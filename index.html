@@ -1,6 +1,7 @@
 <html>
 <head>
 <link href="css\bootstrap.css" rel="stylesheet">
+<link href="css\dropdown.less" rel="stylesheet">
 <link href="css\custom.less" rel="stylesheet">
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <script src="js\jquery-2.1.3.js"></script>
@@ -45,27 +46,53 @@
           </div><!-- /.col-xs-12 -->
         </div><!-- /.well -->
       </div><!-- /.row -->
-        <div class="col-sm-4 btn-group sidebar" role="group">
+      <!-- LEFT SIDEBAR -->
+        <div class="col-md-3 hidden-sm hidden-xs btn-group sidebar" role="group">
           <text class="btn-group-text">
-            <button type="button" class="sort-btn btn active" id="top-btn">Front Page</button>
+            <button type="button" class="sort-btn btn active">Front Page</button>
             <br>
-            <button type="button" class="sort-btn btn" id="new-btn">New England Melee</button>
+              <button type="button" class="sort-btn btn">New England Melee</button>
             <br>
-            <button type="button" class="sort-btn btn" id="new-btn">&#8226Burlap</button>
+            <button type="button" class="sort-btn btn">
+              Burlap 
+              <span class="badge">12</span>
+            </button>
             <br>
-            <button type="button" class="sort-btn btn" id="new-btn">&#8226Neu Frisbee</button>
+            <button type="button" class="sort-btn btn">
+              Neu Frisbee 
+              <span class="badge">4</span>
+            </button> 
             <br>
-            <button type="button" class="sort-btn btn" id="new-btn">Bevy Team</button>
+              <button type="button" class="sort-btn btn">Bevy Team</button>
             <br>
           </text>
         </div>
-        <div class="col-sm-4">
-          sdfsdf
+        <!-- MIDDLE CONTENT -->
+        <div class="col-xs-6">
         </div>
-        <div class="col-sm-4">
-          sdfsdf
+        <!-- RIGHT SIDEBAR -->
+        <div class="col-md-3 hidden-sm hidden-xs">
+          <div id="dropdown" class="ddmenu sort-btn">
+            Notifications
+            <span class="badge">2</span> 
+            <span class="caret"></span>
+            <ul>
+              <li><a class="sort-btn" role="menuitem" href="#">
+                Josh Guerrero and two others commented on Your Post &#34;Owl Spread-ing his Wings&#34;</a></li>
+              <li><a class="sort-btn" role="menuitem" href="#">
+                Tyler Speck and two others commented on your post &#34;Bvy.io is the-greatest&#34;</a></li>
+            </ul>
+          </div>
+          <div id="dropdown" class="ddmenu sort-btn">
+            Invites
+            <span class="badge"></span> 
+            <span class="caret"></span>
+            <ul>
+              <li><a class="sort-btn" role="menuitem" href="#">
+                You have been invited to Known Scrub's bevy &#34;Neu Melee&#34;</a></li>
+            </ul>
+          </div>
         </div>
-</div>
 </body>
 </html>
 
@@ -76,4 +103,25 @@ $(function () { $("[data-toggle='tooltip']").tooltip(); });
 $(".btn-group > text > .btn").click(function(){
     $(this).addClass("active").siblings().removeClass("active");
 });
+
+//KEEP DROPDOWNS OPEN
+$('.dropdown').on({
+    "shown.bs.dropdown": function() { this.closable = false; },
+    "click":             function() { this.closable = true; },
+    "hide.bs.dropdown":  function() { return this.closable; }
+});
+
+//NICE DROPDOWN
+$("#dropdown").on("click", function(e){
+  e.preventDefault();
+  
+  if($(this).hasClass("open")) {
+    $(this).removeClass("open");
+    $(this).children("ul").slideUp("fast");
+  } else {
+    $(this).addClass("open");
+    $(this).children("ul").slideDown("fast");
+  }
+});
+
 </script>
