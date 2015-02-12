@@ -9,8 +9,13 @@
 <body>
   <div class="navbar navbar-fixed-top"> <!-- navbar -->
     <div class="navbar-header pull-left">
-      <a class="navbar-brand" href="#">Bevy</a>
+      <a class="navbar-brand" href="#">
+      <img src="img\navbar_logo.png"/>
+      </a>
     </div>
+    <text class="navbar-brand navbar-brand-text">
+    Bevy
+    </text>
     <div class="navbar-header pull-right" id="bs-example-navbar-collapse-1">
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group" style="padding-right: 10px">
@@ -30,16 +35,36 @@
             </span>
           </div><!-- /input-group -->
         </div><!-- /.col-xs-12 -->
+        <div class="well sort-well"> <!-- TOP • NEW -->
+          <div class="col-xs-12 btn-group" role="group" style="float:none; text-align: center;">
+            <text class="btn-group-text">
+              <button type="button" class="sort-btn btn active" id="top-btn">top</button>
+              &#8226
+              <button type="button" class="sort-btn btn" id="new-btn">new</button>
+            </text>
+          </div><!-- /.col-xs-12 -->
+        </div><!-- /.well -->
       </div><!-- /.row -->
-     <div class="well sort-well"> <!-- TOP • NEW -->
-      <div class="col-xs-12 btn-group" role="group" style="float:none; text-align: center;">
-        <text style="color: #757d83; margin-left: auto; margin-right: auto;">
-        <button type="button" class="sort-btn btn active" id="top-btn">top</button>
-        &#8226
-        <button type="button" class="sort-btn btn" id="new-btn">new</button>
-        </text>
-      </div><!-- /.col-xs-12 -->
-     </div><!-- /.well -->
+        <div class="col-sm-4 btn-group sidebar" role="group">
+          <text class="btn-group-text">
+            <button type="button" class="sort-btn btn active" id="top-btn">Front Page</button>
+            <br>
+            <button type="button" class="sort-btn btn" id="new-btn">New England Melee</button>
+            <br>
+            <button type="button" class="sort-btn btn" id="new-btn">&#8226Burlap</button>
+            <br>
+            <button type="button" class="sort-btn btn" id="new-btn">&#8226Neu Frisbee</button>
+            <br>
+            <button type="button" class="sort-btn btn" id="new-btn">Bevy Team</button>
+            <br>
+          </text>
+        </div>
+        <div class="col-sm-4">
+          sdfsdf
+        </div>
+        <div class="col-sm-4">
+          sdfsdf
+        </div>
 </div>
 </body>
 </html>
@@ -47,6 +72,7 @@
 <script>
 $(function () { $("[data-toggle='tooltip']").tooltip(); });
 
+//TOP * NEW BUTTONS
 $(".btn-group > text > .btn").click(function(){
     $(this).addClass("active").siblings().removeClass("active");
 });
