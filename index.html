@@ -1,11 +1,13 @@
 <html>
 <head>
 <link href="css\bootstrap.css" rel="stylesheet">
-<link href="css\dropdown.less" rel="stylesheet">
-<link href="css\custom.less" rel="stylesheet">
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-<script src="js\jquery-2.1.3.js"></script>
+<link href="css\dropdown.less" rel="stylesheet"> <!-- for text dropdowns -->
+<link href="css\app.less" rel="stylesheet">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"> <!-- FAVICON -->
+<script src="js\jquery-2.1.3.js"></script> 
 <script src="js\bootstrap.min.js"></script>
+<script src="js\backbone.js"></script> 
+<script src="js\app.js"></script>
 </head>
 <body>
   <div class="navbar navbar-fixed-top"> <!-- navbar -->
@@ -36,8 +38,8 @@
             </span>
           </div><!-- /input-group -->
         </div><!-- /.col-xs-12 -->
-        <div class="well sort-well"> <!-- TOP • NEW -->
-          <div class="col-xs-12 btn-group" role="group" style="float:none; text-align: center;">
+        <div class="sort-well"> <!-- TOP • NEW -->
+          <div class="col-xs-12 btn-group btn-group-sort" role="group" style="float:none; text-align: center;">
             <text class="btn-group-text">
               <button type="button" class="sort-btn btn active" id="top-btn">top</button>
               &#8226
@@ -47,7 +49,7 @@
         </div><!-- /.well -->
       </div><!-- /.row -->
       <!-- LEFT SIDEBAR -->
-        <div class="col-md-3 hidden-sm hidden-xs btn-group sidebar" role="group">
+        <div class="col-md-3 hidden-xs btn-group left-sidebar" role="group">
           <text class="btn-group-text">
             <button type="button" class="sort-btn btn active">Front Page</button>
             <br>
@@ -68,10 +70,33 @@
           </text>
         </div>
         <!-- MIDDLE CONTENT -->
-        <div class="col-xs-6">
+        <div class="col-xs-7">
+          <div class="panel">
+            <div class="panel-heading">
+            <a href="https://farm8.staticflickr.com/7363/9218137415_72af1b75b4_k.jpg">Turnip Rock, Lake Huron - Port Austin, Michigan</a>
+            </div>
+            <div class="panel-details">Kevin Altschuler &#8226 Burlap &#8226 12 hours ago</div>
+            <div class="panel-body" tabindex="0">
+            <img class="panel-media" src="https://farm8.staticflickr.com/7363/9218137415_72af1b75b4_k.jpg">
+            </div>
+            <div class="panel-commments">
+
+            </div>
+            <div class="panel-bottom">
+              <div class="panel-controls-left">
+              1252 points
+              <br>
+              53 comments
+              </div>
+              <div class="panel-controls-right">
+                <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- RIGHT SIDEBAR -->
-        <div class="col-md-3 hidden-sm hidden-xs">
+        <div class="col-md-2 hidden-xs btn-group right-sidebar">
           <div id="dropdown" class="ddmenu sort-btn">
             Notifications
             <span class="badge">2</span> 
@@ -97,7 +122,8 @@
 </html>
 
 <script>
-$(function () { $("[data-toggle='tooltip']").tooltip(); });
+//right tooltip
+$(function () { $("[data-toggle='tooltip']").tooltip(); }); 
 
 //TOP * NEW BUTTONS
 $(".btn-group > text > .btn").click(function(){
@@ -124,4 +150,16 @@ $("#dropdown").on("click", function(e){
   }
 });
 
+//IMAGE EXPAND, KEEP FOCUSED UNTIL CLICKED ON AGAIN
+$('.panel-body').click( function(e) {
+    e.preventDefault();
+
+    if($(this).hasClass('focus')){
+        $(this).removeClass('focus');
+    } else {
+        $(this).addClass('focus');
+    }
+});
+
+module.exports = MyAwesomeReactComponent;
 </script>
